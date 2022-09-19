@@ -37,7 +37,7 @@ class DBStorage:
             objects.extend(self.__session.query(User).all())
 
         else:
-            objects = self.__session.query(cls).all()
+            objects = self.__session.query(eval(cls)).all()
         dico = {
             "{}.{}".format(obj.__class__.__name__, obj.id):
             obj for obj in objects}

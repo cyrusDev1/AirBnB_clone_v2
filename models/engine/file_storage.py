@@ -14,7 +14,7 @@ class FileStorage:
         if cls is not None:
             new_dict = {}
             for k, v in self.__objects.items():
-                if type(v) == cls:
+                if type(v) == eval(cls):
                     new_dict[k] = v
             return new_dict
         return FileStorage.__objects
