@@ -36,7 +36,7 @@ class DBStorage:
             objects.extend(self.__session.query(City).all())
             objects.extend(self.__session.query(User).all())
             objects.extend(self.__session.query(Place).all())
-
+            objects.extend(self.__session.query(Review).all())
         else:
             objects = self.__session.query(eval(cls)).all()
         dico = {
