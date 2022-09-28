@@ -47,7 +47,7 @@ def deploy():
     """Function to compares and to distribute an archive to a
     server whitout path variable"""
     archive_path = do_pack()
-    if not archive_path:
+    if archive_path is None:
         return False
     return do_deploy(archive_path)
 
