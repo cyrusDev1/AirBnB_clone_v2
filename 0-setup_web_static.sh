@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 # script that sets up your web servers for the deployment of web_static
 
 apt-get -y update
