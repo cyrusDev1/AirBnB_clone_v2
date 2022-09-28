@@ -44,36 +44,8 @@ def do_deploy(archive_path):
 
 
 def deploy():
-    """Function to compares and to distribute an archive to a
-    server whitout path variable"""
+    """Function to compares and to distribute an archive to a server"""
     archive_path = do_pack()
     if archive_path is None:
         return False
-    ret = do_deploy(archive_path)
-    return ret
-
-# def do_deploy(archive_path):
-# whitout path variable"
-#    if not os.path.exists(archive_path):
-#        return False
-#    try:
-#        rex = r'^versions/(\S+).tgz'
-#        match = re.search(rex, archive_path)
-#        filename = match.group(1)
-#        put(archive_path, '/tmp/{}.tgz'.format(filename))
-#        run("mkdir -p /data/web_static/releases/
-#           {}".format(filename))
-#        run("tar -xzf /tmp/{}.tgz -C /data/web_static/releases/
-#              {}".format(filename, filename))
-#        run("mv /data/web_static/releases/
-#                   {}/web_static/* /data/web_static/releases/
-#               {}".format(filename, filename))
-#        run("rm -rf /data/web_static/releases/{}/web_static".format(filename))
-#        run("rm /tmp/{}.tgz".format(filename))
-#        run("rm -rf /data/web_static/current")
-#        run("ln -sf /data/web_static/releases/
-#               {} /data/web_static/current".format(filename))
-#        print("New version deployed!")
-#        return True
-#    except Exception:
-#        return True
+    return do_deploy(archive_path)
