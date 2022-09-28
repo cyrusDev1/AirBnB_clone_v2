@@ -49,7 +49,8 @@ def deploy():
     archive_path = do_pack()
     if archive_path is None:
         return False
-    return do_deploy(archive_path)
+    ret = do_deploy(archive_path)
+    return ret
 
 # def do_deploy(archive_path):
 # whitout path variable"
