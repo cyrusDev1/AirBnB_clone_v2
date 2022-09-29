@@ -4,7 +4,7 @@ from fabric.api import env
 import re
 import os
 from datetime import datetime
-env.hosts = ['18.205.96.47', '3.231.218.16']
+env.hosts = ['18.205.96.48', '3.231.218.163']
 env.user = 'ubuntu'
 env.identity = '~/.ssh/id_rsa'
 
@@ -49,3 +49,17 @@ def deploy():
     if archive_path is None:
         return False
     return do_deploy(archive_path)
+
+def do_clean(number=0):
+    """Keep it clean"""
+    archives = local("ls -1t versions/", capture=True).split("\n")
+    number = int(1) if number == "0" else int(number)
+    print(archives)
+    for file in archives[number:]:
+        local("rm versions/{}".format(file))
+
+    server_dir = run("ls -1t /data/web_static/releases").split("\n")
+    print(server_dir)
+    for dir in server_dir[number:]:
+        if dir != "test":
+            run("rm -rf /data/web_static/releases/{}".format(dir))
