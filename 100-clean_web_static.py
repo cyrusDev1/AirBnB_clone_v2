@@ -8,6 +8,7 @@ env.hosts = ['18.205.96.48', '3.231.218.163']
 env.user = 'ubuntu'
 env.identity = '~/.ssh/id_rsa'
 
+
 def do_pack():
     """Function to compares"""
     local("mkdir -p versions")
@@ -49,6 +50,7 @@ def deploy():
     if archive_path is None:
         return False
     return do_deploy(archive_path)
+
 
 def do_clean(number=0):
     """Keep it clean"""
