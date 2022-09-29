@@ -13,8 +13,8 @@ def do_pack():
     """Function to compares"""
     local("mkdir -p versions")
     time = datetime.now().strftime("%Y%m%d%H%M%S")
-    file = "versions/web_static_".format(time)
-    result = local("tar -cvzf {}.tgz web_static".format(
+    file = "versions/web_static_{}.tgz".format(time)
+    result = local("tar -cvzf {} web_static".format(
         file))
     if result.failed:
         return None
