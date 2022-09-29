@@ -4,9 +4,10 @@ from fabric.api import env
 import re
 import os
 from datetime import datetime
-env.hosts = ['18.205.96.47', '3.231.218.16']
+env.hosts = ['18.205.96.48', '3.231.218.163']
 env.user = 'ubuntu'
 env.identity = '~/.ssh/id_rsa'
+
 
 def do_pack():
     """Function to compares"""
