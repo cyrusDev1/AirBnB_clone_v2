@@ -13,11 +13,12 @@ def do_pack():
     """Function to compares"""
     local("mkdir -p versions")
     time = datetime.now().strftime("%Y%m%d%H%M%S")
-    result = local("tar -cvzf versions/web_static_{}.tgz web_static".format(
-        time))
+    file = "versions/web_static_".format(time)
+    result = local("tar -cvzf {}.tgz web_static".format(
+        file))
     if result.failed:
         return None
-    return result
+    return file
 
 
 def do_deploy(archive_path):
