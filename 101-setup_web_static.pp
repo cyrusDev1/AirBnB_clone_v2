@@ -11,6 +11,6 @@ exec { 'command':
     chown -R ubuntu:ubuntu /data/;
     HBNB_STATIC='\n\tlocation /hbnb_static/ {\n\t\talias /data/web_static/current/;\n\t}';
     sed -i '29i\ $HBNB_STATIC' /etc/nginx/sites-available/default;
-    service nginx restart;",
+    service nginx restart',
     provider => shell,
 }
