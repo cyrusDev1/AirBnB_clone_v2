@@ -1,6 +1,6 @@
 # Redo the task #0 but by using Puppet:
 
-excec { 'command':
+exec { 'command':
     command => "apt-get -y update;
     apt-get -y install nginx;
     mkdir -p /data/web_static/;
