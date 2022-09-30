@@ -11,7 +11,7 @@ env.identity = '~/.ssh/id_rsa'
 
 def do_pack():
     """Function to compares"""
-    local("mkdir -p versi ons")
+    local("mkdir -p versions")
     time = datetime.now().strftime("%Y%m%d%H%M%S")
     file = "versions/web_static_{}.tgz".format(time)
     result = local("tar -cvzf {} web_static".format(
