@@ -14,7 +14,7 @@ class FileStorage:
         if cls is not None:
             new_dict = {}
             for k, v in self.__objects.items():
-                if type(v) == eval(cls):
+                if type(v) == cls:
                     new_dict[k] = v
             return new_dict
         return FileStorage.__objects
@@ -65,3 +65,8 @@ class FileStorage:
             key = cls+"."+id
             if key in self.__objects:
                 del self.__objects[key]
+
+    def close(self):
+        """Call reload() method for deserializing the JSON
+        file to objects"""
+        self.reload()

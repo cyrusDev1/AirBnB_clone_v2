@@ -39,7 +39,7 @@ class DBStorage:
             objects.extend(self.__session.query(Review).all())
             objects.extend(self.__session.query(Amenity).all())
         else:
-            objects = self.__session.query(eval(cls)).all()
+            objects = self.__session.query(cls).all()
         dico = {
             "{}.{}".format(obj.__class__.__name__, obj.id):
             obj for obj in objects}
@@ -65,3 +65,7 @@ class DBStorage:
         session_factory = sessionmaker(
             bind=self.__engine, expire_on_commit=False)
         self.__session = scoped_session(session_factory)
+
+    def close(self):
+        """Close the SQLAlchemy session."""
+        self.__session.close()
