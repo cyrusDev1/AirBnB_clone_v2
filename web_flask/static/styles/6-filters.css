@@ -67,6 +67,8 @@ ul,li{
     opacity: 0;
     transition: opacity .3s;
     visibility: hidden;
+	overflow-y: scroll;
+	max-height: 300px;
 }
 div.container .amenities .popover{
     padding-top: 50px;
